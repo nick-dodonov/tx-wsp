@@ -1,1 +1,7 @@
+# ALL: location for working projects
 */
+# EXCEPT: workspace settings
+!.vscode/
+
+# MacOS Cache
+.DS_Store
