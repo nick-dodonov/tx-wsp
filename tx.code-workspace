@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "tx-pkg-aux"
+		},
+		{
+			"path": "tx-pkg-misc"
 		}
 	]
 }
