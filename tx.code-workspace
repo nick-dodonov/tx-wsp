@@ -4,6 +4,9 @@
 			"path": "."
 		},
 		{
+			"path": "tx-kit-repo"
+		},
+		{
 			"path": "tx-pkg-aux"
 		},
 		{
