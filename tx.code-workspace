@@ -4,7 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "tx-kit-repo"
+			"path": "tx-kit-registry"
+		},
+		{
+			"path": "tx-kit-ext"
 		},
 		{
 			"path": "tx-pkg-aux"
