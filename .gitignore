@@ -1,7 +1,8 @@
 # ALL: location for working projects
-*/
+#/*/
+/lwlog/
 # EXCEPT: workspace settings
-!.vscode/
+!/.vscode/
 
 # CLion
 /.idea/
