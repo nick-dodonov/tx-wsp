@@ -3,5 +3,16 @@
 # EXCEPT: workspace settings
 !.vscode/
 
-# MacOS Cache
+# CLion
+/.idea/
+/.clwb/
+
+# Temporary
+.*.bazelrc
+
+# OS/caches/temp files
 .DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*.log
