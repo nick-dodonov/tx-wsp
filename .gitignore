@@ -1,7 +1,7 @@
-# ALL: location for working projects
-#/*/
-/lwlog/
-# EXCEPT: workspace settings
+# IGNORE: research/override projects
+/*/
+# EXCEPT: tx projects & workspace settings
+!/tx-*/
 !/.vscode/
 
 # CLion
