@@ -15,5 +15,9 @@
 		{
 			"path": "tx-pkg-misc"
 		}
-	]
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off"
+	}
 }

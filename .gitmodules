@@ -1,0 +1,15 @@
+[submodule "tx-app-demo"]
+	path = tx-app-demo
+	url = ../tx-app-demo.git
+[submodule "tx-kit-ext"]
+	path = tx-kit-ext
+	url = ../tx-kit-ext.git
+[submodule "tx-kit-registry"]
+	path = tx-kit-registry
+	url = ../tx-kit-registry.git
+[submodule "tx-pkg-aux"]
+	path = tx-pkg-aux
+	url = ../tx-pkg-aux.git
+[submodule "tx-pkg-misc"]
+	path = tx-pkg-misc
+	url = ../tx-pkg-misc.git

@@ -1,7 +1,8 @@
-# ALL: location for working projects
-*/
-# EXCEPT: workspace settings
-!.vscode/
+# IGNORE: research/override projects
+/*/
+# EXCEPT: tx projects & workspace settings
+!/tx-*/
+!/.vscode/
 
 # CLion
 /.idea/
