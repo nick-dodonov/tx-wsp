@@ -13,6 +13,3 @@
 [submodule "tx-pkg-misc"]
 	path = tx-pkg-misc
 	url = ../tx-pkg-misc.git
-[submodule "tx-kit-uni"]
-	path = tx-kit-uni
-	url = ../tx-kit-uni.git
