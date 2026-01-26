@@ -3,6 +3,7 @@
 # EXCEPT: tx projects & workspace settings
 !/tx-*/
 !/.vscode/
+!/.github/
 
 # CLion
 /.idea/
