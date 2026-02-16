@@ -72,7 +72,7 @@ The `tx-kit-ext/` module contains Bazel-specific rules and special tools for dev
 - **Naming**: PascalCase for types and functions, camelCase for variables
 - **Namespaces**: Match directory structure without additional prefixes (e.g., `Boot`, `Http`)
 - **Headers**: Use `#pragma once`
-- **Documentation**: Doxygen-style comments for public APIs
+- **Documentation**: Doxygen-style comments for public APIs; full parameter documentation optional if arguments are self-explanatory
 
 ## Common Tasks
 
