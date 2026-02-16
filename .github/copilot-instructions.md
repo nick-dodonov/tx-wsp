@@ -62,9 +62,9 @@ Bazel configuration files and general-purpose tools are located in the `uni/` su
 - **uni/.bazelrc** - Module-specific Bazel configuration
 - **uni/user.pre.bazelrc** - User-specific pre-build config
 - **uni/user.post.bazelrc** - User-specific post-build config
-- **uni/tools/** - General tools (build_info, scripts, etc.)
+- **uni/tools/** - General tools that cannot be built with Bazel (build_info generator)
 
-The `tx-kit-ext/` module contains **only Bazel-specific rules and tools**.
+The `tx-kit-ext/` module contains Bazel-specific rules and special tools for development.
 
 ## Code Style
 
@@ -124,14 +124,15 @@ Access via `Build::Info` interface in pkg-build.
 
 ## Tools and Extensions
 
-**General Tools** (in `uni/` submodule of each module):
-- **tools/build_info/** - Build metadata generation (workspace_status.sh)
-- **tools/dev/** - Development utilities and scripts
+**General Tools and Configs** (in shared `uni/` submodule of each module)
+- Bazel configuration files
+- Default user-specific pre/post build configs
+- General-purpose scripts and tools (e.g., build_info generator)
 
-**Bazel-specific Tools** (in `tx-kit-ext/`):
-- **rules/build/** - Custom Bazel rules (tx_library, tx_binary, tx_test)
-- **tools/dev/init.py** - Development environment setup
-- **tools/wasm/** - WebAssembly build support
+**Bazel-specific Tools** (in `tx-kit-ext/`) include:
+- Custom Bazel build rules
+- Scripts to simplify build execution
+- Useful tools to setup and develop
 
 ## Registry Management
 
@@ -141,17 +142,14 @@ Custom modules in `tx-kit-registry/modules/`:
 
 ## Common Pitfalls
 
-- ❌ Don't create standalone BUILD files without proper dependencies
-- ❌ Don't use absolute paths in BUILD.bazel
-- ❌ Don't forget to run compile_commands refresh after BUILD changes
 - ❌ Don't mix language in code (English-only rule)
-- ✅ Always specify visibility in cc_library rules
+- ❌ Don't create standalone BUILD files without proper dependencies or using absolute paths
 - ✅ Use strip_include_prefix for clean includes
 - ✅ Keep BUILD files close to source code
 
 ## Getting Help
 
 - Check package README.md files
-- Review existing demos in `demo/` directories
+- Review existing demos in `demo/` and `test/` directories
 - Examine similar packages for patterns
 - Consult Bazel documentation for build rules
