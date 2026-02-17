@@ -20,7 +20,21 @@
 		}
 	],
 	"settings": {
+		"cmake.ignoreCMakeListsMissing": true,
 		"typescript.tsc.autoDetect": "off",
 		"npm.autoDetect": "off",
+
+		// "python.analysis.autoSearchPaths": true,
+		"python.analysis.exclude": [
+			"**/bazel-*"
+		],
+	},
+	"extensions": {
+		"recommendations": [
+			// for tasks.json / launch.json
+			"augustocdias.tasks-shell-input",
+			"rioj7.command-variable",
+			"vadimcn.vscode-lldb",
+		]
 	}
 }
