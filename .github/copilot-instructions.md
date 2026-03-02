@@ -144,6 +144,7 @@ Custom modules in `tx-kit-registry/modules/`:
 
 - ❌ Don't mix language in code (English-only rule)
 - ❌ Don't create standalone BUILD files without proper dependencies or using absolute paths
+- ❌ **NEVER run `bazel clean`** (especially with `--expunge`) unless explicitly required - this causes extremely long rebuild times. If specific cleanup is needed, manually remove files from `bazel-out/` or `bazel-bin/` instead
 - ✅ Use strip_include_prefix for clean includes
 - ✅ Keep BUILD files close to source code
 

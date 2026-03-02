@@ -28,6 +28,9 @@
 		"python.analysis.exclude": [
 			"**/bazel-*"
 		],
+		"cursorpyright.analysis.exclude": [
+			"**/bazel-*"
+		],
 	},
 	"extensions": {
 		"recommendations": [
