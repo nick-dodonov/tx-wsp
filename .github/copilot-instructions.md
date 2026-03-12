@@ -30,9 +30,9 @@ This is a multi-module Bazel workspace:
 ### Key Build Rules
 
 ```starlark
-tx_library()   # C++ libraries
-tx_binary()    # C++ executables
-tx_test()      # C++ tests
+multi_lib()   # C++ libraries
+multi_app()   # C++ executables
+multi_test()  # C++ tests
 ```
 
 ## Development Workflow
@@ -101,7 +101,7 @@ Dependencies declared in `MODULE.bazel`:
 ## Testing
 
 - Tests located in `test/` directories
-- Use `tx_test()` rule in BUILD.bazel
+- Use `multi_test()` rule in BUILD.bazel
 - Run with: `bazel test //test:target_test`
 
 ## Best Practices
@@ -144,7 +144,8 @@ Custom modules in `tx-kit-registry/modules/`:
 
 - ❌ Don't mix language in code (English-only rule)
 - ❌ Don't create standalone BUILD files without proper dependencies or using absolute paths
-- ❌ **NEVER run `bazel clean`** (especially with `--expunge`) unless explicitly required - this causes extremely long rebuild times. If specific cleanup is needed, manually remove files from `bazel-out/` or `bazel-bin/` instead
+- ❌ **ABSOLUTELY FORBIDDEN: `bazel clean --expunge` or `bazel clean --expunge_async`** - These commands delete the entire Bazel cache and cause EXTREMELY long rebuild times (hours). **DO NOT USE THESE COMMANDS UNDER ANY CIRCUMSTANCES** unless explicitly requested by the user. If cleanup is needed, manually remove specific files from `bazel-out/` or `bazel-bin/` instead
+- ⚠️  `bazel clean` (without flags) should also be avoided in most cases - prefer targeted cleanup
 - ✅ Use strip_include_prefix for clean includes
 - ✅ Keep BUILD files close to source code
 
