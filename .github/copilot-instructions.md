@@ -149,10 +149,10 @@ Leverage modern C++20/23/26 features for cleaner, safer, and more efficient code
 
 ```bash
 # Build specific target
-bazel build //src/pkg/name:target
+bazel build //pkg/name:target
 
 # Build demo applications
-bazel build //demo/hello-boot
+bazel build //demo/pkg/name:target
 ```
 
 ### Refresh Compile Commands (for IDE)
