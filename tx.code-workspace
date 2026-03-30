@@ -3,6 +3,9 @@
 		{
 			"path": "."
 		},
+		// {
+		// 	"path": "ext"
+		// },
 		{
 			"path": "tx-app-demo"
 		},
@@ -21,7 +24,7 @@
 	],
 	"settings": {
 		"cmake.ignoreCMakeListsMissing": true,
-		"typescript.tsc.autoDetect": "off",
+		"js/ts.tsc.autoDetect": "off",
 		"npm.autoDetect": "off",
 
 		// "python.analysis.autoSearchPaths": true,

@@ -74,6 +74,38 @@ The `tx-kit-ext/` module contains Bazel-specific rules and special tools for dev
 - **Headers**: Use `#pragma once`
 - **Documentation**: Doxygen-style comments for public APIs; full parameter documentation optional if arguments are self-explanatory
 
+## Logging
+
+The workspace uses a custom logging library (`pkg/log`). Include `"Log/Log.h"` and add `"//pkg/log:log"` (or `"//pkg/log"`) to Bazel deps.
+
+### Log Levels
+
+`Log::Trace`, `Log::Debug`, `Log::Info`, `Log::Warn`, `Log::Error`, `Log::Fatal`
+
+### Automatic Context
+
+Log methods **automatically capture the calling class and function name** using `std::source_location`. The output format is:
+
+```
+(timestamp) threadId [Level] ClassName: FunctionName: <your message>
+```
+
+**Do NOT include class/module/area prefixes in log messages** — they are already provided by the framework. Write only the meaningful payload:
+
+```cpp
+// ✅ Correct — context is added automatically
+Log::Trace("listening on port {}", port);
+Log::Trace("connected {} -> {}", localId, remoteId);
+
+// ❌ Wrong — redundant prefix duplicates automatic context
+Log::Trace("udp-server: listening on port {}", port);
+Log::Trace("my-module: connected {} -> {}", localId, remoteId);
+```
+
+### Formatting
+
+Uses `std::format`-style placeholders (`{}`). Example: `Log::Trace("send {} bytes", count);`
+
 ## Modern C++ Features
 
 Leverage modern C++20/23/26 features for cleaner, safer, and more efficient code:
@@ -126,6 +158,29 @@ Leverage modern C++20/23/26 features for cleaner, safer, and more efficient code
 - **Meaningful names** - Use descriptive names that reveal intent
 - **Early returns** - Return early from error conditions to reduce nesting
 - **Const correctness** - Mark variables and methods `const` when they don't modify state
+- **No alignment padding** - Do not align variable names after the type with extra spaces; use a single space only:
+  ```cpp
+  // ✅ Correct
+  std::string name;
+  int count;
+  bool active;
+
+  // ❌ Wrong — alignment padding
+  std::string  name;
+  int          count;
+  bool         active;
+  ```
+- **Always use braces** - Single-statement bodies after `if`/`else`/`for`/`while`/`do` must always be wrapped in `{}`:
+  ```cpp
+  // ✅ Correct
+  if (error) {
+      return;
+  }
+
+  // ❌ Wrong — brace omitted
+  if (error)
+      return;
+  ```
 - **Error handling** - Use `std::expected` for recoverable errors; prefer propagating errors over silent failures
 - **Resource management** - Use RAII (smart pointers, custom wrappers) for resource lifetime
 
