@@ -1,5 +1,22 @@
 # TX Workspace Development Guidelines
 
+## Agent Session Initialization
+
+At the **start of every session**, before doing any work:
+
+1. Use `tool_search("recallium store memory projects session")` to load recallium tools
+2. Call `mcp_recallium_recallium(project_name="tx")` to restore session context, rules, and pending tasks
+3. After completing any significant task, call `mcp_recallium_store_memory(...)` to persist the result
+
+**Recallium project hierarchy:**
+- `tx` — top-level workspace project (31+ memories, rules, history)
+- `tx-pkg-aux` — child: core packages (syntm, rtt, log, boot, http) — link: child of `tx`
+- `tx-pkg-misc` — child: misc packages and demos (peerlab, imgui, sdl)
+
+Always pass the most specific matching project name. When working in `tx-pkg-aux/`, use `project_name="tx-pkg-aux"`.
+
+---
+
 ## Language Requirements
 
 **CRITICAL**: All code artifacts must be in English:
